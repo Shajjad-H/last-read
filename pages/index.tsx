@@ -20,7 +20,7 @@ export default function Home() {
   const remove = (name: string) => {
     if (!confirm('remove ' + name)) return;
     database.remove(subjects, name);
-    window.location.href =  '/';
+    window.location.href = '/';
 
   }
 
@@ -36,14 +36,15 @@ export default function Home() {
     });
 
     const subs = database.save(updated);
-    setSubjects(subs);
+    window.location.href = '/';
+
 
   }
 
 
   return (
     <div className="container w-full">
-      <div className="overflow-auto w-full" style={{height: '80vh'}}>
+      <div className="overflow-auto w-full" style={{ height: '75vh' }}>
         {subjects.map((sub, i) => <Subject subject={sub} remove={(name: string) => remove(name)} reViewed={reViewed} key={i} />)}
       </div>
 
